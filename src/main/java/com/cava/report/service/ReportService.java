@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -46,4 +47,12 @@ public class ReportService {
         return dozerBeanMapper.map(report, ReportDto.class);
 
     }
+
+    public List<ReportDto> getAllReports() {
+        List<Report> reportList = reportRepository.findAll();
+
+        return reportList.stream().map(report -> dozerBeanMapper
+                .map(report, ReportDto.class)).collect(Collectors.toList());
+    }
+
 }
