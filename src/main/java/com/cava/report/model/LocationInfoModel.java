@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class LocationInfoModel {
 
-    public LocationInfoModel(String location, Long personCount) {
-        this.location = location;
-        this.personCount = personCount;
-    }
+//    public LocationInfoModel(String location, Long personCount) {
+//        this.location = location;
+//        this.personCount = personCount;
+//    }
 
     private String location;
 

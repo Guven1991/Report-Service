@@ -1,5 +1,6 @@
 package com.cava.report.entity;
 
+import com.cava.report.model.LocationInfoModel;
 import com.cava.report.model.ReportStatus;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -7,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Getter
@@ -24,6 +26,8 @@ public class Report {
 
     @Enumerated(EnumType.STRING)
     private ReportStatus reportStatus;
+
+    private List<LocationInfoModel> locationInfoModelList;
 
 }
 

@@ -1,5 +1,6 @@
 package com.cava.report.response;
 
+
 import com.cava.report.model.LocationInfoModel;
 import com.cava.report.model.ReportStatus;
 
