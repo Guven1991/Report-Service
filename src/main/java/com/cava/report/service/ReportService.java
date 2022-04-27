@@ -55,4 +55,11 @@ public class ReportService {
                 .map(report, ReportDto.class)).collect(Collectors.toList());
     }
 
+    public ReportDto getReportById(String id) {
+        Report report = reportRepository.findById(id).orElseThrow(() -> new RuntimeException("Report not found"));
+        return dozerBeanMapper.map(report, ReportDto.class);
+    }
+
 }
+
+

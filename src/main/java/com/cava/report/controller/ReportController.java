@@ -7,10 +7,7 @@ import com.cava.report.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.dozer.DozerBeanMapper;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -39,6 +36,14 @@ public class ReportController {
         return ResponseEntity.ok(reportDtoList.stream().map(reportDto ->
                 dozerBeanMapper.map(reportDto, ReportResponse.class))
                 .collect(Collectors.toList()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ReportResponse> getReportById(@PathVariable("id") String id) {
+
+             ReportDto  reportDto = reportService.getReportById(id);
+
+        return ResponseEntity.ok(dozerBeanMapper.map(reportService.getReportById(id), ReportResponse.class));
     }
 
 
